@@ -4,6 +4,7 @@ const User = require('../models/user');
 const UnauthorizedError = require('../errors/unauthorized-err');
 const ConflictError = require('../errors/conflict-err');
 const { statusMessages } = require('../settings/messages');
+const { JWT_SECRET } = require('../config');
 
 const createUser = (req, res, next) => {
   const {
@@ -37,7 +38,6 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const { JWT_SECRET } = process.env;
       const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
       res.cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
