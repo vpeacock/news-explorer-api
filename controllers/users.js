@@ -49,8 +49,8 @@ const login = (req, res, next) => {
 
     .catch((err) => {
       let error;
-      if (err.name === 'DocumentNotFoundError') {
-        error = new UnauthorizedError(statusMessages.unauthorizedError);
+      if (err.name === 'Error') {
+        error = new UnauthorizedError(statusMessages.invalidAuthDataError);
         return next(error);
       }
       return next(err);

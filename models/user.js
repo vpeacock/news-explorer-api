@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: [true, 'email занят'],
+    unique: true,
     validate: [{
       validator: (email) => validator
         .isEmail(email),
@@ -39,7 +39,6 @@ userSchema.statics.findUserByCredentials = function findUserByCredentials(email,
           if (!matched) {
             throw new UnauthorizedError(statusMessages.invalidAuthDataError);
           }
-
           return user;
         });
     });
