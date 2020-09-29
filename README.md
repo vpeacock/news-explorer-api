@@ -1,4 +1,10 @@
 # news-explorer-api
+##API работает на удалённом сервере:
+
+**IP адрес:** 84.201.176.190
+**URLs:** https://api.explorernews.tk https://www.api.explorernews.tk
+
+**Ссылка на github:** https://github.com/vpeacock/news-explorer-api
 
 ## Дипломная работа
 Сервис по поиску и сохранению новостей

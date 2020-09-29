@@ -10,11 +10,11 @@ const joyErrorMessages = {
 };
 
 const statusMessages = {
-  unauthorizedError: 'Необходима авторизация ┌(ಠ_ಠ)┘',
+  unauthorizedError: 'Необходима авторизация (｡◕‿◕｡)',
   successfulAuthorization: 'Успешная авторизация(✿´‿`)',
   invalidUserData: '\u{261E} \u{26A0} Данные пользователя введены некорректно ┐( ˘_˘ )┌',
   userEmailBusy: '\u{261E} \u{26A0} Пользователь с таким e-mail уже зарегистрирован ͡๏̯͡๏',
-  badRequest: '\u{261E} \u{26A0} Неверный запрос (ಠ_ಠ)',
+  badRequest: '\u{261E} \u{26A0} Неверный запрос (｡◕‿◕｡)',
   forbiddenDeleteArticle: '\u{261E} \u{26A0} Запрещено, удалить можно только свою статью ╮(︶▽︶)╭',
   articleNotFound: '\u{261E} \u{26A0} Статья с таким id не существует ┐( ˘_˘ )┌',
   invalidIdFormat: '\u{261E} \u{26A0} Некорректный формат ID ┐( ˘_˘ )┌',
