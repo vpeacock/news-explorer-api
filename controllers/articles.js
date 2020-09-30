@@ -19,8 +19,11 @@ const createArticle = (req, res, next) => {
     keyword, title, text, source, link, image, date, owner,
   })
 
-    .then((article) => {
-      res.send({ data: article });
+    .then((art) => {
+      console.log(art);
+      res.send({
+        _id: art._id, keyword, title, text, source, link, image, date,
+      });
     })
     .catch(next);
 };
@@ -28,12 +31,22 @@ const createArticle = (req, res, next) => {
 const deleteArticle = (req, res, next) => {
   const { articleId } = req.params;
   Article.findById(articleId)
+    .select('+owner')
     .orFail()
-    .then((article) => {
-      if (!article.owner.equals(req.user._id)) {
+    .then((art) => {
+      if (!art.owner.equals(req.user._id)) {
         throw new ForbiddenError(statusMessages.forbiddenDeleteArticle);
       }
-      Article.deleteOne(article).then(() => res.send({ data: article }));
+      Article.deleteOne(art).then(() => res.send({
+        _id: art._id,
+        keyword: art.keyword,
+        title: art.title,
+        text: art.text,
+        source: art.source,
+        link: art.link,
+        image: art.image,
+        date: art.date,
+      }));
     })
     .catch((err) => {
       let error;
