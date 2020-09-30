@@ -44,7 +44,8 @@ const login = (req, res, next) => {
         httpOnly: true,
         sameSite: true,
       })
-        .end(statusMessages.successfulAuthorization);
+        .send({ message: (statusMessages.successfulAuthorization) })
+        .end();
     })
 
     .catch((err) => {

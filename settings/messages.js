@@ -25,6 +25,7 @@ const statusMessages = {
   nameMaxLength: '\u{261E} \u{26A0} Максимальная длина имени должна быть не более 30 символов ╮(︶▽︶)╭',
   invalidEmailFormat: '\u{261E} \u{26A0} Введён не корректный формат почты ┐( ˘_˘ )┌',
   invalidAuthDataError: '\u{261E} \u{26A0} Неверная почта или пароль ┌(ಠ_ಠ)┘',
+  resourseNotFound: '\u{261E} \u{26A0} Запрашиваемый ресурс не найден ┐( ˘_˘ )┌',
 };
 
 module.exports = { joyErrorMessages, statusMessages };
