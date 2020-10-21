@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
@@ -12,7 +13,26 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { limiter } = require('./middlewares/rateLimiter.js');
 const router = require('./routes');
 
+const corsOptions = {
+  origin: [
+    'http://localhost:8080',
+    'https://www.explorernews.tk',
+    'https://explorernews.tk',
+    'https://vpeacock.github.io/news-explorer-frontend/',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: [
+    'Content-Type',
+    'origin',
+    'x-access-token',
+  ],
+  credentials: true,
+};
+
 const app = express();
+app.use('*', cors(corsOptions));
 
 app.use(helmet());
 app.use(limiter);
