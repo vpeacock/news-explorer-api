@@ -35,7 +35,7 @@ const corsOptions = {
 };
 
 const app = express();
-app.use('*', cors(corsOptions));
+
 
 app.use(helmet());
 // app.use(limiter);
@@ -47,6 +47,7 @@ mongoose.connect(config.DATABASE_URL, dbParams);
 
 app.use(requestLogger);
 
+app.use('*', cors(corsOptions));
 app.use('/', router);
 
 app.use(errorLogger);
