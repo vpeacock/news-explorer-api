@@ -44,7 +44,7 @@ const login = (req, res, next) => {
         httpOnly: true,
         sameSite: true,
       })
-        .send({ message: (statusMessages.successfulAuthorization) })
+        .send({ message: statusMessages.successfulAuthorization })
         .end();
     })
 
@@ -66,8 +66,17 @@ const getUser = (req, res, next) => {
     .catch(next);
 };
 
+const logout = (req, res, next) => {
+  try {
+    return res.clearCookie('jwt').send({ message: statusMessages.logoutMessage }).end();
+  } catch (err) {
+    return next();
+  }
+};
+
 module.exports = {
   createUser,
   login,
   getUser,
+  logout,
 };

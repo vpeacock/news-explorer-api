@@ -12,12 +12,12 @@ const {
 
 router.get('/', getArticles);
 
-router.post('/', celebrate(articleValidation), createArticle);
-
 router.delete('/:articleId', celebrate({
   params: Joi.object().keys({
     articleId: Joi.objectId(),
   }),
 }), deleteArticle);
+
+router.post('/', celebrate(articleValidation), createArticle);
 
 module.exports = router;

@@ -35,7 +35,7 @@ const app = express();
 app.use('*', cors(corsOptions));
 
 app.use(helmet());
-app.use(limiter);
+// app.use(limiter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
