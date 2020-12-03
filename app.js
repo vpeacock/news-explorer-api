@@ -16,6 +16,9 @@ const router = require('./routes');
 const corsOptions = {
   origin: [
     'http://localhost:8080',
+    'http://www.explorernews.tk',
+    'http://explorernews.tk',
+    'http://vpeacock.github.io/news-explorer-frontend/',
     'https://www.explorernews.tk',
     'https://explorernews.tk',
     'https://vpeacock.github.io/news-explorer-frontend/',
